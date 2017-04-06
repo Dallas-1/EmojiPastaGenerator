@@ -1,0 +1,17 @@
+{
+  "name": "emoji-pasta-scraper",
+  "version": "1.0.0",
+  "description": "Bot to detect and parse new entries to r/emojipasta",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dallas",
+  "license": "ISC",
+  "dependencies": {
+    "emoji-strip": "^1.0.1",
+    "jsonfile": "^2.4.0",
+    "node-rest-client": "^3.1.0",
+    "snoowrap": "^1.13.0"
+  }
+}
