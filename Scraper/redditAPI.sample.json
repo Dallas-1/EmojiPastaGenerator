@@ -1,0 +1,19 @@
+{
+    "userAgent": "Node/7 (Windows NT 10.0; WOW64; rv:54.0) Emoji/Pasta",
+    "clientId": "",
+    "clientSecret": "",
+    "refreshToken": ""
+}
+/*
+This app uses https://github.com/not-an-aardvark/snoowrap to access reddit's API
+To scrape Reddit we'll need to make an app with them which generates a "clientId" and a "clientSecret" take these and using Oauth you can generate a "refreshToken"
+Honestly though just use this https://github.com/not-an-aardvark/reddit-oauth-helper It'll guide you through it give you your details which you can then dump in here
+Don't wanna click a whole link?
+Well then run
+npm install -g reddit-oauth-helper
+and then
+reddit-oauth-helper
+and awaaaayyy we go
+
+Lastly remove the .sample part of this files name to get running
+*/
