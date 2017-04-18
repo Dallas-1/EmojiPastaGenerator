@@ -1,16 +1,40 @@
+//Hide the emoji input
+$(document).ready(function () {
+            $("#emojiInput").emojioneArea();
+        });
+        /*
+        Not working yet
+$(function () {
+    $('textarea[name="emojiInput"]').hide();
+
+    //show it when the checkbox is clicked
+    $('input[name="eBetween"]').on('click', function () {
+        if ($(this).prop('checked')) {
+            $('textarea[name="emojiInput"]').fadeIn();
+        } else {
+            $('textarea[name="emojiInput"]').hide();
+        }
+    });
+});*/
+
+//Text box autosize
+$(function () {
+        $('.normal').autosize();
+        $('.animated').autosize({ append: "\n" });
+    });
 function convertToEmojiPasta(s, callback) {
     $.get("http://emojipasta.co:2345/parse/", { text: s }, function (data, status) {
         callback(data.newText);
     });
 }
 
-function convertToClap(s, callback) {
+function convertToEmoji(s, emoji, callback) {
     let textA = s.split(" ");
     let newText = "";
     for (var wordPos in textA) {
-        newText += textA[wordPos] + " 👏 ";
+        newText += textA[wordPos] + " " + emoji + " ";
     }
-    callback(newText);  
+    callback(newText);
 }
 
 function CopyToClipboard(containerid) {
@@ -31,22 +55,15 @@ function CopyToClipboard(containerid) {
 
 //Button attachments
 $('#submit').on('click', function () {
-    var $btn = $(this).button('🔥🔥🔥🔥💯💯👅');
-    if (document.getElementById('clap').checked) {
-        convertToClap($('#text').val(), function (returnedClap) {
+    if (document.getElementById('eBetween').checked) {
+        convertToEmoji($('#text').val(),$('#emojiInput').val(), function (returnedClap) {
             document.getElementById("output").innerHTML = returnedClap;
-            $btn.button('reset');
         });
     } else {
         convertToEmojiPasta($('#text').val(), function (returnedEmojiPasta) {
             document.getElementById("output").innerHTML = returnedEmojiPasta;
-            $btn.button('reset');
         });
     }
 })
 
-//Text box autosize
-$(function () {
-    $('.normal').autosize();
-    $('.animated').autosize({ append: "\n" });
-});
+
